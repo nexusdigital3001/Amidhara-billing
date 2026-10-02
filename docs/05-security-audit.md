@@ -35,7 +35,8 @@ of passwords against `admin`. Combined with the well-known default
 **Fix:** rate-limit by IP + username; lock for N minutes after ~5 failures.
 Additive, does not change successful-login behaviour. See `harden.php`.
 
-**Also do today:** confirm the live `admin` password is no longer `admin123`.
+**Deployment rule:** the seeded default password must be changed before a
+install is handed over. Verified done on the current deployment.
 
 ---
 

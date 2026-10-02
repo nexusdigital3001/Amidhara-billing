@@ -14,7 +14,8 @@ A billing system for **Amidhara Stone Crusher**, a quarry / stone-crushing
 business in Jamnagar, Gujarat. Built by Kartik (Nexus Digital) and handed
 over to the client. It replaces manual/Tally billing for truck loads.
 
-Live at: `https://amidhara.nexus-digital.in`
+Status: live in production. The deployment URL and credentials are kept in
+Nexus Digital's own records, deliberately not in this repository.
 
 **Scale tier: T1 (Product).** A handful of staff users, a few thousand
 records a year, single business. Not multi-tenant. Architect one tier up

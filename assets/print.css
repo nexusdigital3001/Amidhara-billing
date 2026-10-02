@@ -1,0 +1,104 @@
+/* Print layout. Black hairlines on white — this must look like the Tally bill. */
+@page { size: A4; margin: 10mm; }
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:#8E9199;
+  font:400 11px/1.3 Arial,Helvetica,sans-serif;color:#000;
+}
+.toolbar{
+  position:sticky;top:0;z-index:5;background:#2B313A;color:#fff;
+  padding:12px 18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+  font:400 15px/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif
+}
+.toolbar b{font-weight:600}
+.toolbar .spacer{flex:1}
+.toolbar button,.toolbar a{
+  padding:9px 16px;border:1px solid #fff;background:transparent;color:#fff;border-radius:3px;
+  font:600 15px/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;cursor:pointer;text-decoration:none
+}
+.toolbar button.go{background:#D64500;border-color:#D64500}
+.toolbar .tip{color:#B9C0C8;font-size:13.5px}
+
+.sheet{
+  width:190mm;min-height:277mm;margin:16px auto;background:#fff;padding:0;
+  box-shadow:0 2px 14px rgba(0,0,0,.3)
+}
+.doc{width:100%;border-collapse:collapse;table-layout:fixed}
+.doc td,.doc th{border:1px solid #000;padding:2px 4px;vertical-align:top}
+.doc .nb{border:0}
+.title{
+  text-align:center;font-size:14px;font-weight:700;padding:4px 0 5px;border:0
+}
+.lbl{font-size:9.5px;color:#000}
+.val{font-weight:700;font-size:11px}
+.big{font-size:12.5px;font-weight:700}
+.r{text-align:right}
+.c{text-align:center}
+.nowrap{white-space:nowrap}
+.seller{font-size:11px;line-height:1.35}
+.seller b{font-size:12.5px}
+.buyer b{font-size:12.5px;text-transform:uppercase}
+.meta td{height:26px}
+.items th{
+  font-size:10px;font-weight:400;text-align:center;padding:3px 4px;vertical-align:middle;
+  border:1px solid #000
+}
+/* body rows keep the column rules but drop the row rules, like Tally */
+.items td{font-size:11px;border-top:0;border-bottom:0}
+.items .desc{font-weight:700}
+.topline{border-top:1px solid #000 !important}
+.taxlbl{text-align:right;font-style:italic;font-weight:700}
+.tot td{font-weight:700;font-size:12px;border-top:1px solid #000}
+.gsum td{font-size:11px;padding:2px 6px;border:0}
+.gsum td.r{padding-right:6px}
+.gnet td{font-size:12.5px;border-top:1px solid #000}
+.words{padding:3px 5px;font-size:11px}
+.words b{font-size:12px}
+.taxtbl{width:100%;border-collapse:collapse;table-layout:fixed}
+.taxtbl td,.taxtbl th{border:1px solid #000;padding:2px 4px;font-size:10.5px;text-align:center}
+.taxtbl th{font-weight:400}
+.taxtbl .r{text-align:right}
+.foot{font-size:10.5px;line-height:1.35}
+.foot b{font-size:11px}
+.sign{height:62px;position:relative}
+.sign .for{text-align:right;font-weight:700;font-size:11px}
+.sign .auth{position:absolute;right:5px;bottom:3px;font-size:10.5px}
+.cgen{text-align:center;font-size:10.5px;padding-top:4px;border:0}
+.cancel-stamp{
+  color:#A32020;border:2px solid #A32020;padding:2px 10px;font-weight:700;font-size:13px;
+  display:inline-block;letter-spacing:.1em
+}
+
+/* ---------- simple (non-GST) bill ---------- */
+.sheet.simple{padding:14mm 12mm;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif}
+.s-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.s-head h1{margin:0;font-size:26px;font-weight:700;letter-spacing:-.01em;text-transform:uppercase}
+.s-head h2{margin:0;font-size:20px;font-weight:700;letter-spacing:.02em}
+.s-right{text-align:right}
+.s-sub{font-size:11.5px;line-height:1.6;color:#333;margin-top:6px}
+.s-billto{margin:26px 0 14px;font-size:12px}
+.s-billto b{font-size:13px}
+.s-tbl{width:100%;border-collapse:collapse;margin-top:6px}
+.s-tbl th{
+  background:#F4F2EE;border:1px solid #C9C4BB;padding:9px 8px;font-size:11px;font-weight:700;
+  text-align:left;white-space:nowrap
+}
+.s-tbl td{border:1px solid #D8D3CB;padding:9px 8px;font-size:12px;vertical-align:top}
+.s-tbl .r{text-align:right}
+.s-tbl .nowrap{white-space:nowrap}
+.s-tbl tr.s-tot td{font-weight:700;font-size:13px;background:#F4F2EE}
+.s-tbl tr.s-sum td{font-size:12px;padding:5px 8px}
+.s-tbl tr.s-net td{font-weight:700;font-size:13px;border-top:2px solid #000}
+.s-words{margin-top:14px;font-size:12px}
+.s-foot{display:flex;justify-content:space-between;gap:30px;margin-top:34px;font-size:11.5px;line-height:1.6}
+.s-sign{text-align:right;font-weight:700;min-width:200px}
+.s-authline{margin-top:52px;font-weight:400;font-size:11px}
+
+@media print{
+  body{background:#fff}
+  .toolbar{display:none}
+  .sheet{width:auto;min-height:0;margin:0;box-shadow:none}
+  .sheet.simple{padding:2mm 4mm}
+  .sheet + .sheet{page-break-before:always}
+}

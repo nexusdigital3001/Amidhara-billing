@@ -1,0 +1,29 @@
+# ---------------------------------------------------------------
+# NEVER COMMIT THESE
+# ---------------------------------------------------------------
+
+# Live database credentials. Copy config.sample.php -> config.php
+# on each server and fill it in there. Keeping this out of git is the
+# single most important line in this file.
+config.php
+
+# Error logs written by harden.php — may contain query fragments
+logs/
+*.log
+
+# Database dumps / backups — these are the business, never in a repo
+*.sql.gz
+backup*.sql
+dump*.sql
+amidhara-*.sql
+
+# Build / packaging artefacts
+*.zip
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
